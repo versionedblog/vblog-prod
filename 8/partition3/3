@@ -1,0 +1,118 @@
+# Exploring pass by Name
+
+## How to run:  
+sbt "run-main JavaCallTimeCalculator"  
+sbt "run-main ScalaCallTimeCalculator"  
+
+[See code at](https://github.com/javavsscala/compare/tree/master/day-3)  
+
+```java
+/**
+ * A mechanism to time function call for a code block
+ */
+public class JavaCallTimeCalculator {
+
+  public static void main(String[] args) {
+        //Sample Run
+        CallTimeCalculator ctc = new CallTimeCalculator() {
+            @Override
+            public void execute() {
+                try {
+                    //Begin Body of code for which to measure time
+                    Thread.sleep(1000);
+                    //End Body
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+
+        long timeMS = ctc.calculateTime();
+        System.out.println(String.format("Time Taken in ms:%d", timeMS));
+  }
+
+    private static abstract class CallTimeCalculator {
+        public long calculateTime() {
+            long beforeTimeMS = System.currentTimeMillis();
+            try {
+                execute();
+            } finally {
+                long afterTimeMS = System.currentTimeMillis();
+                return (afterTimeMS-beforeTimeMS);
+            }
+        }
+
+        public abstract void execute();
+    }
+
+
+}
+```
+
+## Differences
+1. Pass by name: Scala supports pass by name. This enables passing a body of code to a method. 
+The body of code is not evaluated until the first use. So a body parameter as in  "def func(body:  Int)" 
+would be evaluated to an Int before calling the method. However if the method signature changes 
+to "def func(body: => Int)" then the body is evaluated at the time it is first referenced in the 
+method. In the case of the timerMS method it needs to be evaluated inside the method so that
+the execution of the block can be timed. 
+2. The other thing to note is the use of syntax "timerMS {code here}". The code block passed in 
+is in the braces. This is equivalent to "timerMS({code here})". The parens can be dropped. 
+Code becomes more concise and easier to read. This is applicable for pass by value or pass by name. 
+3. Look at the comments in the longOperation method. The comments discuss implicits, scope of imports, 
+the ability to drop dots and parens in calling methods.
+
+```scala
+/**
+ * A mechanism to time function call or a code block
+ */
+object ScalaCallTimeCalculator extends App {
+
+  def timerMS(body: => Unit) : Long = {
+
+    var diff = 0L;
+    val before = System.currentTimeMillis
+    try {
+      var diff = 0L;
+      val before = System.currentTimeMillis
+      try {
+        body
+      } finally {
+        val after = System.currentTimeMillis
+        diff = after - before
+    }
+    diff
+  }
+
+  /**
+   * Examine the longOperation method closely. In particular the use of a FiniteDuration instance.
+   * It demonstrates a number scala features.
+   * "2 seconds" translates to 2.seconds().
+   *  If the method has no parameters in parameter then the parenthesis can be dropped.
+   *  The dot between an instance and the method name can be dropped as well.
+   *  However there is no seconds() method on the Int class.
+   *  So yet another feature called implicits is used.
+   *  The implicit feature looks for a class in scope that can use  (2: Int) to construct an instance of itself.
+   *  In addition that class must have a method seconds()
+   *  DurationInt is the class that satisfies this constraint.
+   *  DurationInt is available due to "import scala.concurrent.duration._"
+   *  The third item to notice in this case is that the import is done inside the method longOperation.
+   *  This feature allows imports to be be done closest to the point of use.
+   *  The scope of the import is restricted to the block in which it is declared and recurisively blocks inside that block.
+   */
+  //Sample Run
+  def longOperation(): Unit = {
+    import scala.concurrent.duration._
+    val time: FiniteDuration = 2 seconds
+    val ms =  time.toMillis
+    Thread.sleep(time.toMillis)
+  }
+
+//Execute the long operation method 
+  val timeInMillisecs = timerMS {
+    longOperation
+  }
+
+  println(s"Time taken for operation is $timeInMillisecs")
+
+}
+```
