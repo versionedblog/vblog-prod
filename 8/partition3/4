@@ -1,0 +1,12 @@
+# Introduction
+
+All the articles are written with the assumption that the reader is familiar with Java 1.7 and is learning scala usign their knowlede of java as a starting point. 
+I find that learning happens often by extension. If you already know somethign then attaching new information to existing information may make it easier to learn. 
+
+I have not used Java 1.8 a whole lot. I may occasionally explore some Java examples in Java1.8.
+
+
+## Table of Content
+[Hello World](http://www.jobdox.com/message.html?userId=8&messageId=1)
+[Stepping beyond Hello World with Fibonnaci](http://www.jobdox.com/message.html?userId=8&messageId=2)
+[Exploring Pass by Name](http://www.jobdox.com/message.html?userId=8&messageId=3)
