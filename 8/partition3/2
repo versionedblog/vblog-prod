@@ -1,0 +1,100 @@
+# How to run:  
+sbt "run-main JavaFibonacci"  
+sbt "run-main ScalaFibonacci"  
+
+[See code at](https://github.com/javavsscala/compare/tree/master/day-2)  
+
+<!--
+![Alt text](http://www.webdesign-inspiration.com/uploads/design/www-sampleapp-com-17438.jpg)
+-->
+
+```java
+import java.math.BigInteger;
+
+/**
+ * Fibonacci at any position is the sum of fibonacci at previous to positions:
+ * Positions start at 0
+ * position 0 is returned by fib(0) and is 0,
+ * position 1 is fib(1) = 1 and
+ * fib(n) = fib(n-1) + fib(n-2)
+ */
+public class JavaFibonacci {
+
+  public static void main(String[] args) {
+        //Sample Run
+        int[] positionList = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000 };
+        for (int position : positionList) {
+            BigInteger fibNumber = fib(position);
+            System.out.println(String.format("Fibonacci for position %d=%s", position, fibNumber.toString()));
+        }
+  }
+
+    public static BigInteger fib(Integer pos) {
+        return fib(BigInteger.valueOf(0),BigInteger.valueOf(1), pos);
+    }
+
+
+    private static BigInteger fib(BigInteger a, BigInteger b, int pos) {
+        if(pos == 0) {
+            return a;
+        } else {
+            return fib(b, a.add(b), pos -1);
+        }
+    }
+
+}
+
+```
+
+## Differences
+1. Type inference: In scala type of assigned value is inferred from the expression computed for the assignment. 
+2. Scala has a concept of tail recursion invoked by the use of scala.annotation.tailrec. This causes the compilation to fail if the recursion cannot be converted by the compiler to an iteration.
+3. function definition begins with the *def* keyword. 
+4. Type declaration of a function parameter in Scala happens after identifier.
+5. The result type expected by evaluating the function is also declared after the function parameter declaration.
+6. Scala function declaration and function body are separated by a '=' sign.
+7. Notice the new operator is not directly required in creating a list from a set of specified items of the List
+8. The List is actually List[Int]. In this case the [Int] is not declared. But it gets inferred from the context.
+9. The List is created using the apply function of the List companion object. If a class name is followed by a parameter list and there exists an apply method in the companion object that matches the parameter values passed in then that apply method of the companion object is invoked.
+10. The List is actually scala.collection.immutable.List. This is an immutable List. If you have an IDE try to navigate to the declaration of List. Everything in package object scala is automatically available and does not have to be imported by the programmer.
+11. Read up companion objects. Every class can have a companion object. The methods and member variables in the companion object are similar to static methods and member variables in a Java class. 
+12. List(1,2,3) is really a call to List.apply function in the companion object of class List.
+13. Also note that ';' are not required after import statments or assignment statements. 
+
+```scala
+import java.math.BigInteger
+
+import scala.annotation.tailrec
+
+/**
+ * Fibonacci at any position is the sum of fibonacci at previous to positions:
+ * Positions start at 0
+ * position 0 is returned by fib(0) and is 0,
+ * position 1 is fib(1) = 1 and
+ * fib(n) = fib(n-1) + fib(n-2)
+ */
+object ScalaFibonacci extends App{
+
+  def fib(pos: Int) : BigInteger = {
+    fib(BigInteger.valueOf(0),BigInteger.valueOf(1), pos)
+  }
+
+  @tailrec
+  def fib(a: BigInteger, b: BigInteger, pos: Int) : BigInteger = {
+    if(pos == 0) {
+      a
+    } else {
+      fib(b, a.add(b), pos -1)
+    }
+  }
+
+  //Sample Run
+  val positionList = List(0, 1, 2, 3, 4, 5, 6, 7, 8, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000)
+  for (position <- positionList) {
+    val fibNumber = fib(position)
+    println(s"Fibonacci for position $position=$fibNumber")
+  }
+
+}
+
+```
