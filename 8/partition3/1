@@ -1,0 +1,34 @@
+# How to run:  
+sbt "run-main JavaHelloWorld"  
+sbt "run-main ScalaHelloWorld" 
+sbt "run-main ScalaHelloWorld2"
+
+[See code at](https://github.com/javavsscala/compare/tree/master/day-1)   
+
+```java
+public class JavaHelloWorld {
+        public static void main(String[] args) {
+                System.out.println("Hello World from Java!!!");
+        }
+}
+```
+
+## Differences
+1. No need to declare class public. Scala classes are public by default.
+2. Instead of a class with main method in java, define an object that extends App
+3. Simply use println instead of System.out.println. Trace the println function, it leads to System.out.println
+
+
+```scala
+object ScalaHelloWorld extends App {
+  println("Hello World from Scala!!!")
+}
+```
+
+```scala
+object ScalaHelloWorld2 {
+  def main(args: Array[String]): Unit = {
+    println("Hello World from Scala2!!!")
+  }
+}
+```
