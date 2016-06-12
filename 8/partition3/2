@@ -1,12 +1,12 @@
-# How to run:  
+# Stepping beyond Hello World with Fibonnaci
+
+## How to run:  
 sbt "run-main JavaFibonacci"  
 sbt "run-main ScalaFibonacci"  
 
 [See code at](https://github.com/javavsscala/compare/tree/master/day-2)  
 
-<!--
-![Alt text](http://www.webdesign-inspiration.com/uploads/design/www-sampleapp-com-17438.jpg)
--->
+
 
 ```java
 import java.math.BigInteger;
