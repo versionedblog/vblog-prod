@@ -1,0 +1,98 @@
+# Double Entry Book Keeping(The prgrammers perspective)
+
+I am an engineer by profession. I picked up a book about Accounting by chance a few years ago and found it hard to undestand double-entry book keeping. 
+Recently I came across a few videos on youtube about the same topic. Here my version in text. I have tried to understand it from the perspective 
+of an engineer. 
+
+A business engages in transactions. A business maintains many accounts in its books. Every transaction affects two or more accounts. A transaction
+can never affect only one account. 
+
+First identify a few invariants. The set of things that must always hold true. By makign sure that any action we take maintains these invariants
+it becomes easier to see the logic of double entry book keeping. 
+
+### Invariant 0: A transaction must affect more than one account
+
+### Invariant 1: Assets = Liabilities + Owners Equity 
+
+Abbreviated as: 
+A = L + OE
+I sometimes refer to Asset Account as the Left Accounts and Liability/Owners Equity accounts as Right Accounts.
+
+Assets(A), Liabilities(L) and Owners Equity(OE) are each represented by multiple accounts. 
+
+Asset accounts represent the cash and stuff that the company has. 
+Liability accounts represent the money the company owes to other entities. 
+Owners Equity Accounts have a net value and that value represents the total amount of money that the owners of the business have a claim to in case the business is shut down.
+
+In particular if a business is shut then all the assets will be sold. The cash generated will be first used to pay off all the liabilities and the cash that remails will be Owners Equity
+that can be returned to the owner. 
+
+### Invariant 2: Total Credited amount in transaction = Total Debited amount in Transaction **
+Every transaction affects two or more accounts. Some accounts will be credited an amount and some accounts will be debited an amount. But total amount credited 
+in a transaction must equal the total amount  debited. 
+
+### Invariant 3: Every account has one debit column and one credit column
+The debit column is to the left of the credit column. While the discussion focusses on putting an amount in the credit or debit column, in reality there would be extra 
+data such as date of transaction and a memo.  
+
+### Arbitrary Assumption 1
+- An increase in the left account will be put in the debit column. 
+- An decrease in the left account will be put in the credit column. 
+
+### Derivation 1: Total Credits across all the accounts must equal total debits across all accounts. 
+This follows naturally from Invariant 2. Since Invariant 2 ensures this is true for every transaction it must be true across all transactions conducted upto any point in time
+
+### Derivation 2: Effect of Invariant 1
+If case of transaction that affects only two accounts: 
+
+- If both accounts are Left Accounts, then the increase in one account must be balanced by a decrease in another account. 
+- If both accounts are Right Accounts, then the increase in one account must be balanced  by a decrease in another account
+- If one account is a Left Account and another is a Right Account then there are two possibilities: both increase or both decrease. 
+
+### Derivation 3: Effect of Arbitrary Assumption 1 and Derivation 2
+
+In case  of transaction that has two accounts: 
+
+- If both accounts are Left Accounts
+    - **The account that records an increase will get an entry in the debit column.** This is enforced by Arbitrary assumption 1.
+    - **The account that records a decrease will get an entry in the credit column. ** This is enforced by Arbitrary assumption 1.
+- If one account is a Left Account and other a Right Account. 
+    - If Left Account increases(and gets a debit entry by virtue of Arbitrary Assumption 1), then Right Account must increase to maintain Invariant 1. 
+    - But due to Invariant 2 the entry must be a Credit Column Entry. **This leads to the idea that an increase in Right Account is always recorded in Credit Column.**
+    - If Left Account decreases(and gets a credit entry by virtue of Arbitrary Assumption 1), then Right Account must decrease to maintain Invariant 1. 
+    - But due to Invariant 2 the entry must be a Debit Column Entry. **This leads to the idea that a decrease in Right Account is always recorded in Debity Column.**
+- If both accounts are Right Accounts
+    - The account that records an increase will get an entry in the credit column. This is supported by Derivation 3 itself. 
+    -  The account that records a decrease will get an entry in the debit column.  This is supported by Derivation 3 itself. 
+
+## Lemonade Stand 
+
+Let us start and stop this business in one day. Lets say we invest $2.00 in cash in the lemonade business and borrow $6.00 from Bank of Mom. 
+Mom is kind and will not charge any interest. Use $4.00 to buy lemons, $2.00 to buy sugar, $0.50 to buy salt, and $1.50 to but 20 cups. 
+Make 20 glasses of lemonade and sell each glass for 50 cents each. We end up with $10.00 at the end of day. This represents a profit of $2.00. 
+
+List of accounts: 
+
+- Cash(Asset)
+- Inventory(Asset)
+- Loan from Mom(Liability)
+- Stock(Owners Equity) 
+- Sales Revenue
+- Cost of Goods  Sold
+
+List of Transactions: 
+ 
+ - Deposit $ 2.00 Cash as investment and issue a stock certificate with face value of $2.00
+     - Debit Cash and Credit Stock
+ - Deposit $ 6.00 Cash from Mom and issue promisory note for $6.00 to Mom. 
+     - Debit Cash and Credit Loan from Mom. 
+ - But inventory for $8.00 as mentioned above
+     - Debit Inventory $8.00 and Credit Cash $8.00
+ - Sell 20 glasses to a large group of people in one shot. Collect $10.00 for the sale. 
+     - Debit $10.00 Cash and Credit $10.00 Sales Revenue
+     - Credit $8.00 Inventory and Debit $8.00 Cost of Goods Sold
+
+## Summary
+Only do actions prescribed by Arbitrary Assumption 1 and Derivations 1,2 and 3. 
+After every transaction all the Invariants will be true. 
+If any of the Invariants is not met then some non-prescribed action was taken. Debug what that was.
