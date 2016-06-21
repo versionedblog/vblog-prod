@@ -1,6 +1,112 @@
-# test :
-test 
-test 
-test 
-test 
-ww
+# Exploring Tense in English
+Why are tenses so complicated in English? 
+
+There are 5 dimensions to tenses in the English language. The verb can change for each combination of these dimensions. 
+
+Dimension1: 
+  - Related to Subject
+  - Values: 
+    - First Person
+    - Second Person
+    - Third Person
+Dimension2:
+  - Related to Subject
+  - Values: 
+    - Singular
+    - Plural
+Dimension3: 
+  - Related to Tense
+  - Values: 
+    - Past
+    - Present
+    - Future
+Dimension4:
+  - Related to Tense
+  - Values: 
+    - Not Something happening at the time in question(Not Progressive)
+    - Something happening at the time in question(Progressive)
+Dimension5:
+  - Related to Tense
+  - Values: 
+    - Non-Perfect
+    - Perfect
+
+Every sentence must use one value from each of the 5 dimensions. 
+Since there are 5 dimensions and there are 3,2,3,2,2 values in those dimensions the total number of combinations is: 3 x 2 x 3 x 2 x 2 = 72
+
+This is the reason why tense is so complicated in English. 
+
+|Dimension 1|Dimension 2|Dimension 3|Dimension 4|Dimension 5|Sample Sentence|
+|-----------|-----------|-----------|-----------|-----------|---------------|
+|First Person|Singular|Present|Not Progressive|Not Perfect|I watch movies|
+|Second Person|Singular|Present|Not Progressive|Not Perfect|You watch movies|
+|Third Person|Singular|Present|Not Progressive|Not Perfect|He watches movies|
+|First Person|Plural|Present|Not Progressive|Not Perfect|We watch movies|
+|Second Person|Plural|Present|Not Progressive|Not Perfect|You watch movies|
+|Third Person|Plural|Present|Not Progressive|Not Perfect|They watch movies|
+|First Person|Singular|Past|Not Progressive|Not Perfect|I watched the movie|
+|Second Person|Singular|Past|Not Progressive|Not Perfect|You watched the movie|
+|Third Person|Singular|Past|Not Progressive|Not Perfect|He watched the movie|
+|First Person|Plural|Past|Not Progressive|Not Perfect|We watched the movie|
+|Second Person|Plural|Past|Not Progressive|Not Perfect|You watched the movie|
+|Third Person|Plural|Past|Not Progressive|Not Perfect|They watched the movie|
+|First Person|Singular|Future|Not Progressive|Not Perfect|I will watch the movie|
+|Second Person|Singular|Future|Not Progressive|Not Perfect|You will watch the movie|
+|Third Person|Singular|Future|Not Progressive|Not Perfect|He will watch the movie|
+|First Person|Plural|Future|Not Progressive|Not Perfect|We will watch the movie|
+|Second Person|Plural|Future|Not Progressive|Not Perfect|You will watch the movie|
+|Third Person|Plural|Future|Not Progressive|Not Perfect|They will watch the movie|
+|First Person|Singular|Present|Progressive|Not Perfect|I am watching the movie|
+|Second Person|Singular|Present|Progressive|Not Perfect|You are watching the movie|
+|Third Person|Singular|Present|Progressive|Not Perfect|He is watching the movie|
+|First Person|Plural|Present|Progressive|Not Perfect|We are watching the movie|
+|Second Person|Plural|Present|Progressive|Not Perfect|You are watching the movie|
+|Third Person|Plural|Present|Progressive|Not Perfect|They are watchign the movie|
+|First Person|Singular|Past|Progressive|Not Perfect|I was watching the movie|
+|Second Person|Singular|Past|Progressive|Not Perfect|You were watching the movie|
+|Third Person|Singular|Past|Progressive|Not Perfect|He was watching the movie|
+|First Person|Plural|Past|Progressive|Not Perfect|We were watching the movie|
+|Second Person|Plural|Past|Progressive|Not Perfect|You were watching the movie|
+|Third Person|Plural|Past|Progressive|Not Perfect|They were watching the movie|
+|First Person|Singular|Future|Progressive|Not Perfect|I will be watching the movie|
+|Second Person|Singular|Future|Progressive|Not Perfect|You will be watching the movie|
+|Third Person|Singular|Future|Progressive|Not Perfect|He will be watching the movie|
+|First Person|Plural|Future|Progressive|Not Perfect|We will be watching the movie|
+|Second Person|Plural|Future|Progressive|Not Perfect|You will be watching the movie|
+|Third Person|Plural|Future|Progressive|Not Perfect|They will be watching the movie|
+|First Person|Singular|Present|Not Progressive|Perfect|I have watched the movie|
+|Second Person|Singular|Present|Not Progressive|Perfect|You have watched the movie|
+|Third Person|Singular|Present|Not Progressive|Perfect|He has watched the movie|
+|First Person|Plural|Present|Not Progressive|Perfect|We have watched the movie|
+|Second Person|Plural|Present|Not Progressive|Perfect|You have watched the movie|
+|Third Person|Plural|Present|Not Progressive|Perfect|They have watched the movie|
+|First Person|Singular|Past|Not Progressive|Perfect|I had watched the movie|
+|Second Person|Singular|Past|Not Progressive|Perfect|You had watched the movie|
+|Third Person|Singular|Past|Not Progressive|Perfect|He had watched the movie|
+|First Person|Plural|Past|Not Progressive|Perfect|We had watched the movie|
+|Second Person|Plural|Past|Not Progressive|Perfect|You had watched the movie|
+|Third Person|Plural|Past|Not Progressive|Perfect|They had watched the movie|
+|First Person|Singular|Future|Not Progressive|Perfect|I will have watched the movie|
+|Second Person|Singular|Future|Not Progressive|Perfect|You will have watched the movie|
+|Third Person|Singular|Future|Not Progressive|Perfect|He will have watched the movie|
+|First Person|Plural|Future|Not Progressive|Perfect|We will have watched the movie|
+|Second Person|Plural|Future|Not Progressive|Perfect|You will have watched the movie|
+|Third Person|Plural|Future|Not Progressive|Perfect|They will have watched the movie|
+|First Person|Singular|Present|Progressive|Perfect|I have been watching the movie|
+|Second Person|Singular|Present|Progressive|Perfect|You have been watching the movie|
+|Third Person|Singular|Present|Progressive|Perfect|He has been watching the movie|
+|First Person|Plural|Present|Progressive|Perfect|We have been watching the movie|
+|Second Person|Plural|Present|Progressive|Perfect|You have been watching the movie|
+|Third Person|Plural|Present|Progressive|Perfect|They have been watchign the movie|
+|First Person|Singular|Past|Progressive|Perfect|I had been watching the movie|
+|Second Person|Singular|Past|Progressive|Perfect|You had been watching the movie|
+|Third Person|Singular|Past|Progressive|Perfect|He had been watching the movie|
+|First Person|Plural|Past|Progressive|Perfect|We had been watching the movie|
+|Second Person|Plural|Past|Progressive|Perfect|You had been watching the movie|
+|Third Person|Plural|Past|Progressive|Perfect|They had been watching the movie|
+|First Person|Singular|Future|Progressive|Perfect|I will have been watching the movie|
+|Second Person|Singular|Future|Progressive|Perfect|You will have been watching the movie|
+|Third Person|Singular|Future|Progressive|Perfect|He will have been watching the movie|
+|First Person|Plural|Future|Progressive|Perfect|We will have been watching the movie|
+|Second Person|Plural|Future|Progressive|Perfect|You will have been watching the movie|
+|Third Person|Plural|Future|Progressive|Perfect|They will have been watching the movie|
